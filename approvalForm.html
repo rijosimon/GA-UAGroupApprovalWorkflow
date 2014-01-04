@@ -1,0 +1,56 @@
+<html>
+<head>
+</head>
+<body>
+    <div id = "main-div" style="position:absolute; left:100px; right:100px;">
+    <div id="thanksTextDiv" style="visibility:hidden;">
+        <center><h2><b>Your response has been submitted.</b></h2></center>
+    </div>
+     <div id = "formSubmitDiv">
+  <form id='approvalForm'>
+    <h1><center>UAF New Group/List Request Approval</center></h1>
+    <?var dataEntered = getEnteredData();?>
+    <br /><br /><b>Time of initial Request : </b><?=dataEntered[0]?>
+    <br /><br /><b>Request Submitted By : </b><?=dataEntered[1]?>
+    <br /><br /><b>Campus of Request : </b><?=dataEntered[2]?>
+    <br /><br /><b>The nature of the team the group or list serves : </b><?=dataEntered[3]?>
+    <br /><br /><b>The name of the list or group : </b><input type="text" name="nameInput" size="50" value="<?=dataEntered[4]?>"/>
+    <br /><br /><b>The email of the group or list address : </b><input type="text" name="emailInput" size="50" value="<?=dataEntered[5]?>"/>
+    <br /><br /><b>Description for the new group or list : </b><?=dataEntered[6]?>
+    <br /><br /><b>What will be the nature of use of this group/list : </b><?=dataEntered[7]?>
+    <br /><br /><b>Additional notes about the request : </b><?=dataEntered[8]?>
+    <br /><br /><b>Number of members estimated : </b><?=dataEntered[9]?>
+    <br /><br /><b>Are you the initial owner? (Mention the real owner if you are not the one) : </b><?=dataEntered[10]?>
+     <br /><br />
+    <b>Enter Notes about this Approval : </b>
+    <br /><br />
+    <textarea name = 'approvalNotes' rows='10' cols='135'>Enter notes on this approval...</textarea>
+    <br />
+    <b>Request Approved?</b>
+    <br /><br />
+    <input name = "decision" type="radio" id = 'rApproval' value='Yes' <?=dataEntered[11]?>/>Yes<br />
+    <input name = "decision" type="radio" id = 'rApproval' value ='No' <?=dataEntered[12]?>/>No<br />
+    <input name = "decision" type="radio" id = 'rApproval' value='Pending' <?=dataEntered[13]?>/>Pending<br />
+    <br />
+    <b>Set the Group/List Type : </b>
+    <br /><br />
+    <input name = "gltype" type="radio" id = 'glType' value='Group' <?=dataEntered[14]?>/>Group<br />
+    <input name = "gltype" type="radio" id = 'glType' value='List' <?=dataEntered[15]?>/>List<br />
+    <input name = "gltype" type="radio" id = 'glType' value='?' <?=dataEntered[16]?>/>?<br />
+    <br />
+    <script>
+    function processThanks()
+      {
+        document.getElementById('formSubmitDiv').style.visibility = 'hidden';
+        document.getElementById('thanksTextDiv').style.visibility = 'visible';
+      }
+    </script>
+ <input type="button" value="Submit" onclick = 'google.script.run.withSuccessHandler(processThanks).processForm(this.parentNode)' />
+     </form>
+      </div>
+      <div id="thanksTextDiv" style="visibility:hidden;">
+        <center><h2><b>Your response has been submitted.</b></h2></center>
+    </div>
+      </div>
+  </body>
+</html>
